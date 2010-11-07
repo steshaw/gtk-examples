@@ -8,6 +8,7 @@
  *
  */
 
+#include <stdlib.h>
 #include <gtk/gtk.h>
 #include "defender.h"
 #include "defproto.h"
@@ -1156,7 +1157,7 @@ void DisplayOtherUnits (GdkPixmap *pixmap, GtkWidget *drawing_area)
  * 
  * Compare function for sorting the mountain peaks.
  */
-gint MountainCompare (typMountain *m1, typMountain *m2)
+gint MountainCompare (const typMountain *m1, const typMountain *m2)
 {
     return (m1->start.x - m2->start.x);
 }
@@ -1180,7 +1181,7 @@ GList *AddMountain (GList *mountainList, int peakx, int peaky)
     node->end.x = peakx + peaky;
     node->end.y = 0;
  
-    return (g_list_insert_sorted (mountainList, node, MountainCompare));
+    return (g_list_insert_sorted (mountainList, node, (GCompareFunc)MountainCompare));
 }
 
 

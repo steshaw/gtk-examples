@@ -7,6 +7,7 @@
  * Defender game.  
  */
 
+#include <stdio.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include "defender.h"

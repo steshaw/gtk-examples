@@ -1,3 +1,4 @@
+void HandleKeysPressed ();
 
 typUnit *CreatePerson ();
 void HeroMove (int direction);
@@ -20,7 +21,7 @@ void StartGame ();
 void GenerateTerrain ();
 GList *AddPoint (GList *terrainList, int x, int y);
 GList *AddMountain (GList *mountainList, int peakx, int peaky);
-gint MountainCompare (typMountain *m1, typMountain *m2);
+gint MountainCompare (const typMountain *m1, const typMountain *m2);
 void DisplayUnits (GdkPixmap *pixmap, GtkWidget *drawing_area);
 typUnit *AnyoneBetween (int x1, int y1, int x2, int y2);
 typSprite *GetSprite (typUnit *unit);
