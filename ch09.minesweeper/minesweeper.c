@@ -5,12 +5,18 @@
  * Similar to the windows minesweeper game.
  */
 
-#include <gtk/gtk.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <time.h>
+#include <gtk/gtk.h>
 #include "misc.h"
 #include "bitmaps.h"
 #include "digits.h"
+
+extern void StartTimer ();
+extern void StopTimer ();
+
+extern void CreateMenu (GtkWidget *window, GtkWidget *vbox_main);
 
 void SetStartButtonIcon (gchar **xpm_data);
 
@@ -167,8 +173,11 @@ void AddImageToMine (typMinesweeperButton *mine, char *xpm[])
     /* --- Put the bitmap in the button --- */
     gtk_container_add (GTK_CONTAINER (mine->widget), widget);
 
+#if 0
     /* --- deref image so when button is destroyed, image is destroyed. --- */
+    // NOTE: No longer appears necessary.
     gdk_pixmap_unref ((GdkPixmap *) widget);
+#endif
 }
 
 
@@ -245,7 +254,6 @@ void ShowBombs (typMinesweeperButton *minefound)
 {
     int i, j;
     typMinesweeperButton *mine; 
-    GtkWidget *widget_x;
 
     /* --- Run through all the squares --- */
     for (i = 0; i <  nCols; i++) {
@@ -323,9 +331,6 @@ void OpenNearbySquares (int col, int row)
  */
 void DisplayHiddenInfo (typMinesweeperButton *mine)
 {
-    char      buffer[88];
-    GtkWidget *widget;
-
     /* --- If it's already down, just return --- */
     if (mine->buttonState == BUTTON_DOWN) {
         gtk_toggle_button_set_state (GTK_TOGGLE_BUTTON (mine->widget), TRUE);
@@ -454,7 +459,6 @@ void start_button_clicked (GtkWidget *widget, gpointer *data)
 void mine_button_clicked (GtkWidget *widget, gpointer *data)
 {
     typMinesweeperButton *mine;
-    GtkWidget *label;
 
     mine = (typMinesweeperButton *) data;
 
@@ -507,7 +511,6 @@ void mine_button_clicked (GtkWidget *widget, gpointer *data)
 void button_press (GtkWidget *widget, GdkEventButton *event, gpointer *data)
 {
     typMinesweeperButton *mine;
-    GtkWidget *pixmapWidget;
 
     /* --- Ignore if game is already over with --- */
     if (bGameOver) {
@@ -641,7 +644,6 @@ void CreateMinesweeperButtons (GtkWidget *table,
 {
     int ci;
     int ri;
-    GtkWidget *button;
     int nBombs;
     typMinesweeperButton *mine; 
 
@@ -727,8 +729,6 @@ void CreateMinesweeperButtons (GtkWidget *table,
  */
 void SetGrid (int nGridColumns, int nGridRows, int nBombs)
 {
-    int row, col;
-
     /* --- If the packing table exists. --- */
     if (table) {
 
@@ -762,9 +762,6 @@ void SetGrid (int nGridColumns, int nGridRows, int nBombs)
 int main (int argc, char *argv[])
 {
     GtkWidget *window;
-    GdkBitmap *mask;
-    GtkStyle  *style;
-    GtkWidget *widget_smile;          
     GtkWidget *hbox;          
 
     /* --- GTK initialization --- */

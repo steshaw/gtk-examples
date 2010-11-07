@@ -4,6 +4,7 @@
 
 #include <gtk/gtk.h>
 
+extern void ShowMessage (char *szTitle, char *szMessage);
 
 /*
  * ShowAbout

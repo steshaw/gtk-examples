@@ -5,11 +5,12 @@
  *
  */
 
+#include <string.h>
 #include <gtk/gtk.h>
 
-extern GtkWidget           *win_main;
+extern GtkWidget     *win_main;
 extern GtkAccelGroup *accel_group;
-GtkTooltips         *tooltips = NULL;
+GtkTooltips          *tooltips = NULL;
 
 /*
  * CreateWidgetFromXpm
@@ -33,9 +34,8 @@ GtkWidget *CreateWidgetFromXpm (GtkWidget *window, gchar **xpm_data)
     pixmap_widget = gtk_pixmap_new (pixmap_data, mask);
     gtk_widget_show (pixmap_widget);
 
-    return (pixmap_widget);
+    return pixmap_widget;
 }
-
 
 
 /*
@@ -104,7 +104,7 @@ GtkWidget *CreateMenuItem (GtkWidget *menu,
         gtk_tooltips_set_tip (tooltips, menuitem, szTip, NULL);
     }
 
-    return (menuitem);
+    return menuitem;
 }
 
 
@@ -138,9 +138,8 @@ GtkWidget *CreateMenuCheck (GtkWidget *menu,
     gtk_signal_connect (GTK_OBJECT (menuitem), "toggled",
                         GTK_SIGNAL_FUNC(func), data);
 
-    return (menuitem);
+    return menuitem;
 }
-
 
 
 /*
@@ -175,7 +174,7 @@ GtkWidget *CreateMenuRadio (GtkWidget *menu,
     gtk_signal_connect (GTK_OBJECT (menuitem), "toggled",
                         GTK_SIGNAL_FUNC(func), data);
 
-    return (menuitem);
+    return menuitem;
 }
 
 
@@ -206,7 +205,7 @@ GtkWidget *CreateSubMenu (GtkWidget *menubar, char *szName)
     gtk_menu_item_set_submenu (GTK_MENU_ITEM (menuitem), menu);
 
     /* --- Viola! --- */
-    return (menu);
+    return menu;
 }
 
 
@@ -238,5 +237,5 @@ GtkWidget *CreateBarSubMenu (GtkWidget *menu, char *szName)
     gtk_menu_item_set_submenu (GTK_MENU_ITEM (menuitem), submenu);
 
     /* --- Viola! --- */
-    return (submenu);
+    return submenu;
 }

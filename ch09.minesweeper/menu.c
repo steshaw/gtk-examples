@@ -11,6 +11,8 @@
 #include <gtk/gtk.h>
 #include "misc.h"
 
+extern void ShowAbout ();
+extern void start_button_clicked (GtkWidget *widget, gpointer *data);
 
 void SetGrid (int nColumns, int nRows, int nBombs);
 

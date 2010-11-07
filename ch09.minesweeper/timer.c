@@ -27,6 +27,8 @@ gint TimerCallback (gpointer data)
     nSeconds++;
 
     UpdateSeconds (nSeconds);
+
+    return 1; // NOTE: Needs to be non-zero otherwise timer seems to be stopped.
 }
 
 
