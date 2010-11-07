@@ -1,7 +1,9 @@
 
 CC = gcc
 
-all: sortlist tree hash message list mem
+PROGS = sortlist tree hash message list mem
+
+all: $(PROGS)
 
 sortlist: sortlist.c 
 	$(CC) `gtk-config --cflags` `gtk-config --libs` sortlist.c -o sortlist 
@@ -21,5 +23,12 @@ list: list.c
 mem: mem.c
 	$(CC) `gtk-config --cflags` `gtk-config --libs` mem.c -o mem 
 
-clean: 
-	rm -f *.o sortlist tree hash message list mem
+IGNORED = *.o $(PROGS)
+
+.PHONY:
+ignored:
+	@echo $(IGNORED)
+
+.PHONY:
+clean:
+	rm -f *.o $(PROGS)

@@ -1,3 +1,12 @@
 Examples from the book "Developing Linux Applications with GTK+ and GDK" by Eric Harlow.
 
 Buy the book http://www.amazon.com/Developing-Linux-Applications-Eric-Harlow/dp/0735700214
+
+These examples are for GTK+ 1.2.
+In order to install the necessary libraries on Ubuntu 10.10 (Maverick Meerkat) I pulled in the libraries from Dapper (choose your mirror appropriately):
+
+  $ sudo cat >/etc/apt/sources.list.d/dapper-gtk-1.2.list
+deb http://ftp.iinet.net.au/pub/ubuntu dapper main
+^D
+  $ sudo apt-get update
+  $ sudo apt-get install libgtk1.2-dev

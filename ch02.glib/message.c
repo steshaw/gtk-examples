@@ -5,6 +5,8 @@
  */
 
 #include <glib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /*
  * Surfer Print
@@ -14,7 +16,7 @@
 void SurferPrint (const gchar *buf)
 {
     printf ("Dude, ");
-    printf (buf);
+    fputs (buf, stdout);
 }
 
 /*
@@ -25,7 +27,7 @@ void SurferPrint (const gchar *buf)
 void SurferMessage (const gchar *buf)
 {
     printf ("Dude, ya got a message -> ");
-    printf (buf);
+    fputs (buf, stdout);
 }
 
 /*
@@ -36,7 +38,7 @@ void SurferMessage (const gchar *buf)
 void SurferWarning (const gchar *buf)
 {
     printf ("Bad news Dude. -> ");
-    printf (buf);
+    fputs (buf, stdout);
 }
 
 /*
@@ -47,7 +49,7 @@ void SurferWarning (const gchar *buf)
 void SurferError (const gchar *buf)
 {
     printf ("Major wipe out, dude. -> ");
-    printf (buf);
+    fputs (buf, stdout);
 }
 
 /*
