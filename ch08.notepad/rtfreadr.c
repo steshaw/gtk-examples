@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <gtk/gtk.h>
+#include "notepad.h"
 #include "rtftype.h"
 #include "rtfdecl.h"
 
@@ -26,14 +28,14 @@ FILE *outfp;
 //
 // Main loop. Initialize and parse RTF.
 //
-ConvertRTF (char *szFilename, char *szOutFile)
+int ConvertRTF (char *szFilename, char *szOutFile)
 {
     FILE *fp;
     int ec;
 
     fp = fpIn = fopen (szFilename, "r");
     if (!fp) {
-        ShowMessage ("Can't open file!\n");
+        ShowMessage ("Error!", "Can't open file!\n");
         return 1;
     }
 

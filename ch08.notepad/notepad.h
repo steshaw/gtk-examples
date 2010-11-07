@@ -1,4 +1,6 @@
 
+int ConvertRTF (char *szFilename, char *szOutFile);
+
 void ShowMessage (char *szTitle, char *szMessage);
 GtkWidget *GetTextWidget ();
 char *GetText ();

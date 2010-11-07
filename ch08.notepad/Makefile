@@ -31,9 +31,11 @@ rtfactn.o: rtfactn.c
 	$(CC) -c -g rtfactn.c 
 
 # Object modules
-OBJS = main.o  notepad.o  filesel.o  about.o  menu.o  misc.o  progressbar.o  search.o  rtfreadr.c  rtfactn.c  showmessage.o
+OBJS = main.o notepad.o filesel.o about.o menu.o misc.o progressbar.o search.o rtfreadr.o rtfactn.o showmessage.o
 
-notepad:  main.o notepad.o filesel.o about.o menu.o misc.o progressbar.o search.o rtfreadr.o rtfactn.o showmessage.o 
-	gcc `gtk-config --libs` main.o notepad.o filesel.o about.o menu.o misc.o progressbar.o search.o rtfreadr.o rtfactn.o showmessage.o -o notepad
+notepad:  main.o notepad.o filesel.o about.o menu.o misc.o progressbar.o search.o rtfreadr.o rtfactn.o showmessage.o
+	gcc `gtk-config --libs` $(OBJS) -o notepad
 
-
+.PHONY:
+clean:
+	@rm -f $(OBJS) notepad

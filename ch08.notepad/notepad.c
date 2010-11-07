@@ -1,6 +1,8 @@
-#include <gtk/gtk.h>
+#include <stdio.h>
+#include <string.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <gtk/gtk.h>
 #include "notepad.h"
 
 static GtkWidget *text;

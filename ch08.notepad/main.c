@@ -1,6 +1,5 @@
-
-
-#include "gtk/gtk.h"
+#include <string.h>
+#include <gtk/gtk.h>
 #include "notepad.h"
 
 gint ClosingAppWindow (GtkWidget *widget, gpointer data);

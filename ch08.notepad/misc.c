@@ -5,6 +5,7 @@
  *
  */
 
+#include <string.h>
 #include <gtk/gtk.h>
 
 extern GtkWidget           *win_main;
