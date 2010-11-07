@@ -1,0 +1,9 @@
+This code has the RTF interpreter added which the book did not have.
+The code reads an RTF file and converts it to text to be displayed
+in the editor.  This does not save back out in RTF format.
+
+I did not write the code, but found it and included it here because
+my book was originally written in RTF and people were using the 
+program to read the book.
+
+
