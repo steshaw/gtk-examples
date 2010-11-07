@@ -1,0 +1,4 @@
+
+* No sound because "libcanberra-gtk-module.so" isn't available on my system:
+
+Gtk-WARNING **: Failed to load module "libcanberra-gtk-module.so": libcanberra-gtk-module.so: cannot open shared object file: No such file or directory
